@@ -1,24 +1,7 @@
-# Python
 backend/venv/
 backend/__pycache__/
-backend/*.pyc
 backend/.env
-*.py[cod]
-*.class
-
-# Node
 node_modules/
 .next/
 .env.local
 .env.production
-.env
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
