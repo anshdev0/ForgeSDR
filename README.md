@@ -1,81 +1,72 @@
-⚒️ ForgeSDR: Autonomous AI Sales Agent
-ForgeSDR is a high-performance, full-stack AI agent designed to automate deep company research and generate hyper-personalized sales outreach. By leveraging parallel web scraping and LLM-based analysis, it transforms raw URLs into tailored value propositions in seconds.
+ForgeSDR: Autonomous AI Sales Development Agent
+ForgeSDR is a high-performance, full-stack AI agent designed to automate deep company research and generate hyper-personalized sales outreach. By leveraging parallel web scraping and LLM-based analysis, the system transforms raw URLs into tailored value propositions and email drafts.
 
-🚀 Live Demo
-Frontend: [Insert your Vercel Link Here]
+🚀 Live Links
+Frontend: [Insert Vercel URL]
 
-Backend API: [Insert your Railway Link Here]
+Backend API: [Insert Railway URL]
 
-✨ Key Features
-Parallel Bulk Processing: Processes multiple target URLs simultaneously using asyncio and crawl4ai for maximum efficiency.
+✨ Core Features
+Parallel Bulk Processing: Processes multiple target URLs simultaneously using asyncio and crawl4ai.
 
-Deep Research Mode: Automatically discovers and scrapes internal links (blogs, case studies) to identify specific company pain points.
+Deep Context Research: Automatically discovers and scrapes internal links (blogs, case studies) to identify specific pain points.
 
-Value Prop Refiner: Analyzes the user's raw pitch against real-time research to suggest an optimized "Power Version".
+Value Prop Refiner: Analyzes raw input against research data to suggest optimized value propositions.
 
-Persistent Lead Tracking: All generated pitches and metadata are stored in a cloud PostgreSQL database for permanent access.
+Persistent History: Integrated with Supabase (PostgreSQL) for cloud-based lead tracking and metadata storage.
 
-Universal Mailer: Integrated mailto: protocol to launch the user's preferred desktop or web-based email client instantly.
+Universal Email Integration: Uses standard mailto: protocols to interface with any default system email client.
 
-🏗️ Tech Stack
+🏗️ Technical Stack
 Frontend
-Framework: Next.js 14 (App Router).
+Framework: Next.js 14 (App Router)
 
-Styling: Tailwind CSS for a modern, "Monk Mode" inspired aesthetic.
+Styling: Tailwind CSS
 
-State Management: React Hooks with persistent storage synchronization.
-
-Deployment: Vercel.
+Database Interface: Client-side fetching from FastAPI/Supabase
 
 Backend
-Framework: FastAPI (Python).
+Framework: FastAPI (Python)
 
-Scraping: crawl4ai for high-speed, LLM-friendly markdown extraction.
+Scraping: crawl4ai for markdown-optimized extraction
 
-Orchestration: asyncio for parallelized research tasks.
+Concurrency: asyncio for non-blocking parallel execution
 
-Deployment: Railway.
+Infrastructure
+LLM: Llama 3.3-70B via Groq (Inference speed: ~200+ tokens/sec)
 
-AI & Database
-LLM: Llama 3.3-70B via Groq for sub-second inference.
+Database: Supabase PostgreSQL
 
-Database: Supabase (PostgreSQL) for lead history and metadata.
+Hosting: Vercel (Frontend) and Railway (Backend)
 
-🛠️ Installation & Setup
-1. Backend Setup
-Bash
+🛠️ Installation
+Backend
+Navigate to /backend
 
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-Create a .env file in the /backend folder:
+Install dependencies: pip install -r requirements.txt
 
-Plaintext
+Configure .env with GROQ_API_KEY, SUPABASE_URL, and SUPABASE_KEY
 
-GROQ_API_KEY=your_key
-SUPABASE_URL=your_project_url
-SUPABASE_KEY=your_anon_key
-2. Frontend Setup
-Bash
+Run: uvicorn main:app --reload
 
-cd frontend
-npm install
-npm run dev
+Frontend
+Navigate to the root directory
+
+Install dependencies: npm install
+
+Run: npm run dev
+
 📊 Database Schema
-The project uses the following PostgreSQL structure in Supabase:
+The system utilizes a leads table in PostgreSQL with the following fields:
 
 id: UUID (Primary Key)
 
-company_url: TEXT (Target domain)
+company_url: TEXT
 
-pitch: TEXT (Generated outreach)
+pitch: TEXT
 
-refined_prop: TEXT (Optimized value proposition)
+refined_prop: TEXT
 
-token_usage: INTEGER (LLM cost tracking)
+token_usage: INTEGER
 
-processing_time: FLOAT (Performance metrics)
-
-📖 License
-MIT License. Built by Ansh as part of a transition into AI Engineering.
+processing_time: FLOAT
